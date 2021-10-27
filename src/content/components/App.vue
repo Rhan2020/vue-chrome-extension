@@ -88,7 +88,7 @@
     </div>
     <div class="desc" v-if="!valid">
       <img
-        src="https://static-web.bigolive.tv/as/bigo-static/sheetToCode/0aN8S7.png"
+        src="http://tva1.sinaimg.cn/large/007hOUK1gy1gvu5oaqifmj308c08c0tk.jpg"
         class="bigo-icon"
         alt=""
       />
