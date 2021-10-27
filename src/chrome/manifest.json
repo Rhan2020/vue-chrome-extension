@@ -1,10 +1,10 @@
 {
 	"manifest_version": 2,
-	"name": "vue-chrome-extension",
-	"description": "基于vue的chrome插件",
+	"name": "chrome-sheetToCode",
+	"description": "transform sheet to code",
 	"version": "1.0.0",
 	"browser_action": {
-		"default_title": "vue-chrome-extension",
+		"default_title": "chrome-sheetToCode",
 		"default_icon": "assets/logo.png",
 		"default_popup": "popup.html"
 	},
@@ -31,7 +31,7 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"https://*.baidu.com/*"
+				"https://docs.google.com/*"
 			],
 			"css": [
 				"css/content.css"
