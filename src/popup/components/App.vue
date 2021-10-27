@@ -11,9 +11,7 @@ export default {
   components: {},
 
   data() {
-    return {
-      showPanel: false
-    };
+    return {};
   },
 
   methods: {
@@ -27,9 +25,7 @@ export default {
           let message = {
             info: "open-panel"
           };
-          chrome.tabs.sendMessage(tabs[0].id, message, () => {
-            this.showPanel = !this.showPanel;
-          });
+          chrome.tabs.sendMessage(tabs[0].id, message, () => {});
         }
       );
     }
