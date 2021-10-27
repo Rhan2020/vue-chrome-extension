@@ -1,6 +1,6 @@
 <template>
   <div>
-    hello
+    <button id="open-btn" @click="handleClick">open panel</button>
   </div>
 </template>
 
@@ -11,13 +11,46 @@ export default {
   components: {},
 
   data() {
-    return {};
+    return {
+      showPanel: false
+    };
   },
 
-  methods: {},
+  methods: {
+    handleClick() {
+      chrome.tabs.query(
+        {
+          active: true,
+          currentWindow: true
+        },
+        tabs => {
+          let message = {
+            info: "open-panel"
+          };
+          chrome.tabs.sendMessage(tabs[0].id, message, () => {
+            this.showPanel = !this.showPanel;
+          });
+        }
+      );
+    }
+  },
 
   computed: {},
 
   mounted() {}
 };
 </script>
+
+<style>
+#open-btn {
+  color: black;
+  border-radius: 20px;
+  height: 40px;
+  width: 100px;
+  padding: 10px 20px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
