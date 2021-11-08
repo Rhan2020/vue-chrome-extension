@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button id="open-btn" @click="handleClick">open panel</button>
+    <button id="open-btn" @click="handleClick(1)">sheetToCode</button>
+    <button id="open-btn" @click="handleClick(2)">多语言自检工具</button>
   </div>
 </template>
 
@@ -15,7 +16,7 @@ export default {
   },
 
   methods: {
-    handleClick() {
+    handleClick(tpye) {
       chrome.tabs.query(
         {
           active: true,
@@ -23,7 +24,7 @@ export default {
         },
         tabs => {
           let message = {
-            info: "open-panel"
+            info: `open-panel-${tpye}`
           };
           chrome.tabs.sendMessage(tabs[0].id, message, () => {});
         }
@@ -40,11 +41,11 @@ export default {
 <style>
 #open-btn {
   color: black;
-  border-radius: 20px;
+  border-radius: 10px;
   height: 40px;
   width: 100px;
-  padding: 10px 20px;
-  margin: 20px auto;
+  padding: 5px 20px;
+  margin: 0 auto 10px;
   display: flex;
   align-items: center;
   justify-content: center;
